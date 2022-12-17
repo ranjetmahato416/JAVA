@@ -7,25 +7,19 @@
  *
  * @author Dell
  */
-class SupClass{
-    
-    int salary = 10000;
-
-}
-
-class SubClass extends SupClass{
-    int bonus = 5000;
-    
-    
-}
-public class InheritanceEx {
+public class ExceptionHandling {
     public static void main(String[] args){
-        SubClass c = new SubClass();
-        //c.salary=600;
-        System.out.println(c.bonus);
-        System.out.println(c.salary);
+        try{
+            int data;
+            data= 200/0;
+        
+        }
+        catch(ArithmeticException e){
+            System.out.println("divide by zero"+e);
+      
+            
+        }
         
     }
-    
     
 }
