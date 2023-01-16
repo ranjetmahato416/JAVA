@@ -22,22 +22,28 @@ class Teacher extends Staff{
     public void Display(){
         name = "Trilokya";
         code = 23;
-        System.out.println(name);
-        System.out.println(code);
+        subject="Java";
+        publication="KEC";
+        System.out.println(name+code);
+//        System.out.println(code);
+        System.out.println(subject);
+        System.out.println(publication);
     }
         
     
 }
 
 class Officer extends Staff{
+    String Grade;
     
     public void Display(){
         name = "Parashar";
         code = 21;
+        Grade= "A";
         System.out.println(name);
         System.out.println(code);
+        System.out.println(Grade);        
     }
-    char grade = 'A';
 }
 public class Inheritance {
 
@@ -46,7 +52,6 @@ public class Inheritance {
         t.Display();
         Officer o = new Officer();
         o.Display();
-        System.out.println(o.grade);
         
     }
 }

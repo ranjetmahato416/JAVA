@@ -57,6 +57,7 @@ public class JavaCalculator implements ActionListener {
         int a = Integer.parseInt(s1);
         int b = Integer.parseInt(s2);
         int c =0;
+        try{
         if(e.getSource()==b1){
             c=a+b;
         }else if(e.getSource()==b2){
@@ -65,6 +66,9 @@ public class JavaCalculator implements ActionListener {
             c=a*b;
         }else if(e.getSource()==b4){
             c=a/b;
+        }
+        }catch(Exception error){
+            System.out.println("Division y 0 exception is caught");
         }
         String result = String.valueOf(c);
         tf3.setText(result);
