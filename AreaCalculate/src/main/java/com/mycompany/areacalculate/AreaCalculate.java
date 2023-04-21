@@ -9,36 +9,34 @@ package com.mycompany.areacalculate;
  * @author Dell
  */
 class CalculateArea {
+    double length;
+    double bredth;
 
-   
+   CalculateArea(double l, double b){
+       this.length = l;
+       this.bredth = b;
+   }
 
-    public void Area(double length, double bredth) {
-        double area = length * bredth;
+    public void Triangle() {
+        double area = (this.length*this.bredth)/2;
         System.out.println(area);
     }
 
-    public void Area(double length, double bredth, double height) {
-        double area = (length+bredth+height) / 2;
-        area = Math.sqrt(area*(area-length)*(area-bredth)*(area-height));
+    public void Rectangle() {
+        double area = (this.length*this.bredth);
         System.out.println(area);
 
     }
 }
 
-//class Triangle{
-//        public void TriangleArea(double h, double b){
-//        double area = (h*b)/2;
-//        System.out.println(area);
-//        
-//    }
-//    }
 public class AreaCalculate {
 
     public static void main(String args[]) {
+        CalculateArea a = new CalculateArea(3,4);
+        a.Triangle();
+        a.Rectangle();
 
-        CalculateArea area = new CalculateArea();
-        area.Area(2.32,4.21);
-        area.Area(2.45,3.22,4.32);
+        
         
 
 //        Triangle tri = new Triangle();

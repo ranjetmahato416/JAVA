@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-package com.mycompany.javacalculator;
+package arithmeticop;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -12,14 +12,14 @@ import java.sql.*;
  *
  * @author Dell
  */
-public class JavaCalculator implements ActionListener {
+public class ArithmeticOP implements ActionListener {
 
     JLabel l1, l2, l3, l4;
     JTextField tf1, tf2, tf3;
     JButton b1, b2, b3, b4;
     public static Connection con;
 
-    JavaCalculator() {
+    ArithmeticOP() {
         JFrame f = new JFrame("Arithmetic Operation");
         l1 = new JLabel("Enter first Number");
         l1.setBounds(10, 50, 150, 20);
@@ -71,15 +71,20 @@ public class JavaCalculator implements ActionListener {
         int a = Integer.parseInt(s1);
         int b = Integer.parseInt(s2);
         int c = 0;
+        String operation = null;
         try {
             if (e.getSource() == b1) {
                 c = a + b;
+                operation = "Addition";
             } else if (e.getSource() == b2) {
                 c = a - b;
+                operation = "Subtraction";
             } else if (e.getSource() == b3) {
                 c = a * b;
+                operation = "Multiplication";
             } else if (e.getSource() == b4) {
                 c = a / b;
+                operation = "Division";
             }
             
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -88,8 +93,8 @@ public class JavaCalculator implements ActionListener {
                 System.out.println("Connection Succesful");
             }
             Statement stmt = con.createStatement();
-            int resultSet = stmt.executeUpdate("create table arithmeticOperations(id int(10),value1 double(40),value2 double(10), result double(20));");
-            System.out.println(resultSet+"Table Created");
+            int resultSet = stmt.executeUpdate("insert into arithmeticoperations values('"+a+"','"+b+"','"+c+"','"+operation+"')");
+            System.out.println(resultSet+"Data Inserted");
             stmt.close();
             con.close();
         } catch (Exception ex) {
@@ -101,6 +106,6 @@ public class JavaCalculator implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new JavaCalculator();
+        new ArithmeticOP();
     }
 }
